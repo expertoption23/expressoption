@@ -453,7 +453,7 @@
       <hr class="horizontal dark my-1">
       <div class="card-body pt-sm-3 pt-0">
         <!-- Sidebar Backgrounds -->
-                 <div class="container top">Hi there, How Can I Help</div>
+                 <div class="containeer top">Hi there, How Can I Help</div>
 </div>
           <br/>
           <br/>
@@ -481,8 +481,8 @@
             </div>
          </div>
       </div>
-         <style>
-        .container {
+      <style>
+        .containeer {
   position: relative;
   background: #ffffff;
   padding: 15px;
@@ -492,37 +492,37 @@
   text-align: center;
 }
 
-.container::before,
-.container::after {
+.containeer::before,
+.containeer::after {
   content: '';
   position: absolute;
   border: 11px solid transparent;
 }
 
-.container::after {
+.containeer::after {
   border: 10px solid transparent;
 }
 
-.container.top::before,
-.container.top::after {
+.containeer.top::before,
+.containeer.top::after {
   bottom: 100%;
   left: 19px;
   border-bottom-color: #ccc;
 }
 
-.container.top::after {
+.containeer.top::after {
   left: 20px;
   border-bottom-color: #ffffff;
 }
 
-.container.bottom::before,
-.container.bottom::after {
+.containeer.bottom::before,
+.containeer.bottom::after {
   top: 100%;
   right: 19px;
   border-top-color: #ccc;
 }
 
-.container.bottom::after {
+.containeer.bottom::after {
   right: 20px;
   border-top-color: #ffffff;
 }
@@ -536,9 +536,7 @@ body {
   height: 80vh;
   line-height: 1.5;
   font-family: sans-serif;
-  display: grid;
-  justify-content: center;
-  align-items: center;
+ 
 }
 
 .content {
