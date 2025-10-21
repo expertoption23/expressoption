@@ -23,8 +23,81 @@
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
+       <style>
+  /* Popup background overlay */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none; /* hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
 
+  /* Popup container */
+  .popup-content {
+    background: white;
+    padding: 50px 60px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    max-width: 400px;
+    text-align: center;
+  }
+
+  /* Close button */
+  .close-btn {
+    margin-top: 15px;
+    background: #f97316;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .close-btn:hover {
+    background: #0056b3;
+  }
+</style>
 <body class="g-sidenav-show  bg-gray-100">
+    <!-- Popup markup -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-content">
+    <h2>Join On-Going Trade</h2>
+    <input class="form-control" type="text" placeholder="Paste Analysis here" style="width: 335px;">
+      </br>
+    <button class="close-btn" id="closePopup">Join</button>
+  </div>
+</div>
+
+<script>
+  // Wait for the DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('closePopup');
+
+    // Show popup after 3 seconds
+    setTimeout(() => {
+      popup.style.display = 'flex';
+    }, 3000);
+
+    // Close popup when clicking the button
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    // Optional: Close popup if clicked outside the content area
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  });
+</script>
   <style>
         .containeer {
   position: relative;
