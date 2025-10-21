@@ -435,124 +435,166 @@
       </footer>
     </div>
   </main>
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-     <i style='font-size:44px' class='fas'>&#128488;</i>
-    </a>
-    <div class="card shadow-lg ">
-      <div class="card-header pb-0 pt-3 ">
-        <div class="float-start">
-         <img src="Untitled-1.png" style="width: 60px;">
-          <p>Chat with Steeve</p>
-        </div>
-        <div class="float-end mt-4">
-         
-        </div>
-        <!-- End Toggle Button -->
-      </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds -->
-                 <div class="containeer top">Hi there, How Can I Help</div>
-</div>
-          <br/>
-          <br/>
-          <br/>
-      
-       
-        <!-- Sidenav Type -->
-           <div class="contact_section layout_padding">
-         <div class="container">
-            <div class="contact_section_2">
-               <div class="row">
-                  <div class="col-md-8">
-                     <div class="mail_section map_form_container">
-                        <form action="">
-                           <textarea class="massage-bt" placeholder="Message" rows="5" id="comment" name="Message" style="width: 270px; border-radius: 10px; height: 60px;"></textarea>
-                           <div class="btn_main">
-<!--                              <div class="btn btn-primary w-100 px-3 mb-2 active"><a href="https://expertoption156@gmail.com">Send</a></div>-->
-                           </div>
-                        </form>
-                         <div class="btn btn-primary w-100 px-3 mb-2 active"><a href="mailto:expertoption156@gmail.com">Send</a></div>
-                     </div>
-<!--                      <p>For More Enqirery Email us on <a href="mailto:expertoption156@gmail.com">expertoption156@gmail.com</a></p>-->
-                   </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <style>
-        .containeer {
-  position: relative;
-  background: #ffffff;
-  padding: 15px;
-  border: 1px solid #ccc;
-  margin-top: 20px;
-  border-radius: 8px;
-  text-align: center;
-}
+   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      height: 100vh;
+    }
 
-.containeer::before,
-.containeer::after {
-  content: '';
-  position: absolute;
-  border: 11px solid transparent;
-}
+    /* Floating chat icon */
+    #chat-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #f97316;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+      z-index: 1000;
+    }
 
-.containeer::after {
-  border: 10px solid transparent;
-}
+    #chat-icon:hover {
+      background-color: orangered;
+    }
 
-.containeer.top::before,
-.containeer.top::after {
-  bottom: 100%;
-  left: 19px;
-  border-bottom-color: #ccc;
-}
+    /* Chat box styling */
+    #chat-box {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 320px;
+      max-height: 400px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 999;
+    }
 
-.containeer.top::after {
-  left: 20px;
-  border-bottom-color: #ffffff;
-}
+    .chat-header {
+      background-color: #f97316;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
 
-.containeer.bottom::before,
-.containeer.bottom::after {
-  top: 100%;
-  right: 19px;
-  border-top-color: #ccc;
-}
+    .chat-messages {
+      flex-grow: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
 
-.containeer.bottom::after {
-  right: 20px;
-  border-top-color: #ffffff;
-}
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
 
-/* Unrelated styles */
-:root {
-  font-size: 18px;
-}
+    .chat-input input {
+      flex-grow: 1;
+      border: none;
+      padding: 10px;
+      font-size: 14px;
+      outline: none;
+    }
 
-body {
-  height: 80vh;
-  line-height: 1.5;
-  font-family: sans-serif;
- 
-}
+    .chat-input button {
+      background: #f97316;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-.content {
-  width: 100%;
-  max-width: 800px;
-}
+    .chat-input button:hover {
+      background: #f97316;
+    }
 
-h2 {
-  font-size: 24px;
-}
+    .bot-message {
+      background: #e9f3ff;
+      color: #333;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
 
-h2 small {
-  opacity: 0.7;
-  font-weight: normal;
-}
-        </style>
+    .user-message {
+      background: #f97316;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      align-self: flex-end;
+      width: fit-content;
+    }
+  </style>
+  <div id="chat-icon">💬</div>
+
+  <div id="chat-box">
+    <div class="chat-header">Chat with Steeve</div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="bot-message">Hi there! How can I help you today?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Type a message..." />
+        <a  href="mailto:expressoptionofficial@gmail.com"><button id="send-btn">Send</button></a>
+    </div>
+  </div>
+
+  <script>
+    const chatIcon = document.getElementById('chat-icon');
+    const chatBox = document.getElementById('chat-box');
+    const sendBtn = document.getElementById('send-btn');
+    const userInput = document.getElementById('user-input');
+    const chatMessages = document.getElementById('chat-messages');
+
+    chatIcon.addEventListener('click', () => {
+      chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+      const message = userInput.value.trim();
+      if (message === '') return;
+
+      const userMsg = document.createElement('div');
+      userMsg.classList.add('user-message');
+      userMsg.textContent = message;
+      chatMessages.appendChild(userMsg);
+
+      userInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Simple bot reply
+      setTimeout(() => {
+        const botMsg = document.createElement('div');
+        botMsg.classList.add('bot-message');
+        botMsg.textContent = "Thanks for your message! Steeve will get back to you soon 😊";
+        chatMessages.appendChild(botMsg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 600);
+    }
+  </script>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
